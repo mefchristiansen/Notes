@@ -1,11 +1,14 @@
 import React from 'react';
 
-class Nac extends React.Component {
+class Nav extends React.Component {
 	render() {
 		return (
 
-			<div>
-				Nav Component
+			<div className="nav-container">
+				<div className='nav-logo'>Note</div>
+				<div className='nav-button'>
+					+ Note
+				</div>
 			</div>
 		);
 	}
