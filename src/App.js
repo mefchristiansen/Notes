@@ -5,12 +5,22 @@ import List from './components/List';
 import Note from './components/Note';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showNote: false
+    };
+  }
+
+
   render() {
+    const { showNote } = this.state; // Destructure assignment
+
+
     return (
       <div className="App">
         <Nav />
-        <List />
-        <Note />
+        { showNote ? <Note /> : <List />}
       </div>
 
     );
