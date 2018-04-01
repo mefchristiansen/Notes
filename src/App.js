@@ -40,13 +40,15 @@ class App extends Component {
   }
 
   render() {
-    const { showNote, notes } = this.state; // Destructure assignment
+    const { showNote, notes, note } = this.state; // Destructure assignment
 
     return (
       <div className="App">
         <Nav toggleNote={this.toggleNote} showNote={showNote}/>
         { showNote ? 
-          <Note />
+          <Note
+            note={note}
+          />
           :
           <List
             getNotes={this.getNotes}
