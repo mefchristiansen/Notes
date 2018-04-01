@@ -52,8 +52,12 @@ class Note extends React.Component {
 		if (note.tags) {
 			return note.tags.map((tag, index) => 
 				// Including key property when iterating through list. React needs key to keep track of HTML elements and perform optimizations
-				<div className="tag" key={index}>
-					<span className="delete" onClick={() => this.props.deleteTag(note.id, tag.id)}>
+				<div
+					className="tag"
+					key={index}
+					onClick={() => this.props.deleteTag(note.id, tag.id)}
+				>
+					<span className="delete">
 						<i className="material-icons">delete</i>
 					</span>
 					{tag.name}
