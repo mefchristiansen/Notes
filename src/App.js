@@ -39,6 +39,14 @@ class App extends Component {
     .catch((err) => console.log(err.response.data));
   }
 
+  submitNote = (data) => {
+     axios.post(urlFor('notes'), data)
+     .then((res) => this.setState({
+       showNote: false
+     }))
+     .catch((err) => console.log(err.response.data));
+  }
+
   render() {
     const { showNote, notes, note } = this.state; // Destructure assignment
 
@@ -48,6 +56,7 @@ class App extends Component {
         { showNote ? 
           <Note
             note={note}
+            submitNote={this.submitNote}
           />
           :
           <List
