@@ -73,6 +73,18 @@ class App extends Component {
     });
   }
 
+  closeTagForm = () => {
+    this.setState({
+      newTag: false
+    });
+  }
+
+  submitTag = (data, noteId) => {
+    axios.post(urlFor(`notes/${noteId}/tags`), data)
+    .then((res) => this.getNote(noteId))
+    .catch((err) => console.log(err.response.data));
+  }
+
   render() {
     const { showNote, notes, note, newTag } = this.state; // Destructure assignment
 
@@ -83,8 +95,10 @@ class App extends Component {
           <Note
             note={note}
             submitNote={this.submitNote}
-            showTagForm={this.showTagForm}
             newTag={newTag}
+            showTagForm={this.showTagForm}
+            closeTagForm={this.closeTagForm}
+            submitTag={this.submitTag}
           />
           :
           <List
