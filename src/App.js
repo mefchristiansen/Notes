@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       showNote: false,
       notes: [],
-      note: {}
+      note: {},
+      newTag: false
     };
   }
 
@@ -40,7 +41,7 @@ class App extends Component {
     .catch((err) => console.log(err.response.data));
   }
 
-  performSubmissionRequest = (data, id) => {
+  performSubmissionRequest(data, id) {
     if (id) {
       return axios.patch(urlFor(`notes/${id}`), data);
     } else {
@@ -66,8 +67,14 @@ class App extends Component {
     .catch((err) => console.log(err.response.data));
   }
 
+  showTagForm = () => {
+    this.setState({
+      newTag: true
+    });
+  }
+
   render() {
-    const { showNote, notes, note } = this.state; // Destructure assignment
+    const { showNote, notes, note, newTag } = this.state; // Destructure assignment
 
     return (
       <div className="App">
@@ -76,6 +83,8 @@ class App extends Component {
           <Note
             note={note}
             submitNote={this.submitNote}
+            showTagForm={this.showTagForm}
+            newTag={newTag}
           />
           :
           <List
