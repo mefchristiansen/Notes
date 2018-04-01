@@ -2,7 +2,6 @@ import React from 'react';
 import NoteCard from './NoteCard';
 
 class List extends React.Component {
-
 	componentWillMount() {
 		this.props.getNotes(); //getNotes method passed to List component as prop
 	}
