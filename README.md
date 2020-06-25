@@ -1,1 +1,2 @@
-# Firehose Project Notes React Project Frontend
+# Notes Frontend
+Firehose Project Notes Project React frontend
